@@ -1,0 +1,44 @@
+[
+    {
+        "customerName": "Brad Simmons",
+        "email": "brad@gmail.com",
+        "phoneNumber": "+91 7845784578",
+        "document": [
+            1,
+            1,
+            1
+        ],
+        "action": 1
+    },
+    {
+        "customerName": "Jessie Clarcson",
+        "email": "jessie@gmail.com",
+        "phoneNumber": "+91 9912408456",
+        "document": [
+            1,
+            1
+        ],
+        "action": 2
+    },
+    {
+        "customerName": "Lebron Wayde",
+        "email": "lebron@gmail.com",
+        "phoneNumber": "+91 6328289649",
+        "document": [
+            1,
+            1
+        ],
+        "action": 3
+    },
+    {
+        "customerName": "Natali Trump",
+        "email": "natali@gmail.com",
+        "phoneNumber": "+91 8000446658",
+        "document": [
+            1,
+            1,
+            1
+        ],
+        "action": 2
+    }
+]

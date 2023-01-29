@@ -1,0 +1,38 @@
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
+option {
+  color: black;
+}
+
+/* Style for Sidebar submenu Accordian Toggle */
+.chakra-accordion.submenuToggle {
+  border-color: transparent;
+}
+
+.submenuToggle.chakra-accordion .chakra-accordion__button {
+  padding: 0;
+}
+
+.submenuToggle.chakra-accordion .chakra-accordion__button:hover {
+  background: transparent;
+}
+
+img {
+  object-fit: contain !important;
+}
+
+.logoimg {
+  height: 100px !important;
+  width: 120px !important;
+  margin-left: -10px;
+  margin-bottom: 14px;
+}
+
+.approvehide {
+  display: none;
+}
+.approve {
+  display: block;
+}
