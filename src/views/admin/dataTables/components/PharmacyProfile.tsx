@@ -18,7 +18,7 @@ import {
   AlertDialogHeader,
   AlertDialogContent,
   AlertDialogOverlay,
-  useDisclosure 
+  useDisclosure
 } from "@chakra-ui/react";
 import { Image } from "components/image/Image";
 
@@ -86,10 +86,10 @@ export default function ColumnsTable(props: TableProps) {
   } = tableInstance;
   // initialState.pageSize = 5
 
-  const onClose1 = (val: boolean) =>{
+  const onClose1 = (val: boolean) => {
     setisOpen1(val)
   }
-  const onClose2 = (val: boolean) =>{
+  const onClose2 = (val: boolean) => {
     setisOpen2(val)
   }
 
@@ -118,46 +118,46 @@ export default function ColumnsTable(props: TableProps) {
 
   const images = [avt1, avt2, avt3, avt4];
 
-const [id, setID] = useState('')
+  const [id, setID] = useState('')
   const requestApiData = new Requests();
-const approveHandler = async (id: string) => {
-  setisOpen1(false)
+  const approveHandler = async (id: string) => {
+    setisOpen1(false)
     const data = {
-      "id":id,
-      "is_approved":1
+      "id": id,
+      "is_approved": 1
     }
 
     await requestApiData.pharmacistApprove(data)
-    .then((res) => {
-      if (res?.status === 200) {
-        document.getElementById(`approvehide${id}`).innerHTML = "<p style='color: #1b2559; font-weight: 700;'>Approved</p>"
-      }
-    })
-    .catch((err) => {
-      if(err?.response?.status === 401)
+      .then((res) => {
+        if (res?.status === 200) {
+          document.getElementById(`approvehide${id}`).innerHTML = "<p style='color: #1b2559; font-weight: 700;'>Approved</p>"
+        }
+      })
+      .catch((err) => {
+        if (err?.response?.status === 401)
           Router.push("/auth/sign-in");
-    });
-    
-}
+      });
 
-const approveHandlerNot = async (id: string) => {
-  setisOpen2(false)
+  }
+
+  const approveHandlerNot = async (id: string) => {
+    setisOpen2(false)
     const data = {
-      "id":id,
-      "is_approved":0
+      "id": id,
+      "is_approved": 0
     }
     await requestApiData.pharmacistApprove(data)
-    .then((res) => {
-      if (res?.status === 200) {
-        document.getElementById(`approvehide${id}`).innerHTML = "<p style='color: #1b2559; font-weight: 700;'>Not Approved</p>"
-      }
-    })
-    .catch((err) => {
-      if(err?.response?.status === 401)
+      .then((res) => {
+        if (res?.status === 200) {
+          document.getElementById(`approvehide${id}`).innerHTML = "<p style='color: #1b2559; font-weight: 700;'>Not Approved</p>"
+        }
+      })
+      .catch((err) => {
+        if (err?.response?.status === 401)
           Router.push("/auth/sign-in");
-    });
-}
-  
+      });
+  }
+
   return (
     <Card
       flexDirection="column"
@@ -174,7 +174,7 @@ const approveHandlerNot = async (id: string) => {
         ></Text>
         <Menu />
       </Flex>
-      
+
       <Table {...getTableProps()} variant="simple" color="gray.500" mb="24px">
         <Thead>
           {headerGroups.map((headerGroup, index) => (
@@ -206,7 +206,7 @@ const approveHandlerNot = async (id: string) => {
               <Tr {...row.getRowProps()} key={index}>
                 {row.cells.map((cell, index2) => {
                   let data;
-                  
+
                   if (cell.column.id === "customerName") {
                     data = (
                       <Text
@@ -246,7 +246,7 @@ const approveHandlerNot = async (id: string) => {
                           <Image
                             src={DocIcon}
                             onClick={() => {
-                              let url = `http://103.190.95.131:8000${cell?.value[0]?.licence_image}`;
+                              let url = `http://3.108.227.121:8000${cell?.value[0]?.licence_image}`;
                               saveAs(url, "Licence Image");
                             }}
                             style={{
@@ -262,7 +262,7 @@ const approveHandlerNot = async (id: string) => {
                             <Image
                               src={DocIcon}
                               onClick={() => {
-                                let url = `http://103.190.95.131:8000${cell?.value[0]?.registration_image}`;
+                                let url = `http://3.108.227.121:8000${cell?.value[0]?.registration_image}`;
                                 saveAs(url, "Registration Image");
                               }}
                               style={{
@@ -280,7 +280,7 @@ const approveHandlerNot = async (id: string) => {
                             <Image
                               src={DocIcon}
                               onClick={() => {
-                                let url = `http://103.190.95.131:8000${cell.value[0].registration_image}`;
+                                let url = `http://3.108.227.121:8000${cell.value[0].registration_image}`;
                                 saveAs(url, "Id Image");
                               }}
                               style={{
@@ -299,10 +299,10 @@ const approveHandlerNot = async (id: string) => {
                     data = (
                       <div id={`approvehide${cell?.value}`}>
                         <Button
-                       onClick={()=> {
-                        setID(cell?.value);
-                        setisOpen1(true)
-                      }}
+                          onClick={() => {
+                            setID(cell?.value);
+                            setisOpen1(true)
+                          }}
                           bg="transparent"
                           style={{
                             backgroundColor: "#29cc97",
@@ -324,13 +324,13 @@ const approveHandlerNot = async (id: string) => {
                             marginLeft: "4px",
                           }}
                           onClick={
-                            ()=>{
-                            setID(cell?.value);
-                            setisOpen2(true)
+                            () => {
+                              setID(cell?.value);
+                              setisOpen2(true)
                             }}
                         >
                           {/* RAISE A QUERY */}
-                         NOT APPROVE
+                          NOT APPROVE
                         </Button>
                       </div>
                     );
@@ -372,7 +372,7 @@ const approveHandlerNot = async (id: string) => {
               <Button ref={cancelRef} onClick={() => onClose1(false)}>
                 Cancel
               </Button>
-              <Button colorScheme='green' onClick={()=>approveHandler(id)} ml={3}>
+              <Button colorScheme='green' onClick={() => approveHandler(id)} ml={3}>
                 Approve
               </Button>
             </AlertDialogFooter>
@@ -392,15 +392,15 @@ const approveHandlerNot = async (id: string) => {
             </AlertDialogHeader>
 
             <AlertDialogBody>
-            Are you sure? You don&apos;t wan&apos;t to Approve it.
+              Are you sure? You don&apos;t wan&apos;t to Approve it.
             </AlertDialogBody>
 
             <AlertDialogFooter>
               <Button ref={cancelRef} onClick={() => onClose2(false)}>
                 Cancel
               </Button>
-              <Button colorScheme='green' onClick={()=>approveHandlerNot(id)} ml={3}>
-              NOT APPROVE
+              <Button colorScheme='green' onClick={() => approveHandlerNot(id)} ml={3}>
+                NOT APPROVE
               </Button>
             </AlertDialogFooter>
           </AlertDialogContent>
