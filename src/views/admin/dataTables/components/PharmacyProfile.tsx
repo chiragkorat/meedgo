@@ -296,43 +296,53 @@ export default function ColumnsTable(props: TableProps) {
                       </div>
                     );
                   } else if (cell.column.id === "action") {
+                    console.log("11111111111111111111111", cell?.value)
                     data = (
-                      <div id={`approvehide${cell?.value}`}>
-                        <Button
-                          onClick={() => {
-                            setID(cell?.value);
-                            setisOpen1(true)
-                          }}
-                          bg="transparent"
-                          style={{
-                            backgroundColor: "#29cc97",
-                            borderRadius: "5px",
-                            height: "20px",
-                            fontSize: "10px",
-                            color: "white",
-                          }}
-                        >
-                          APPROVE
-                        </Button>
-                        <Button
-                          style={{
-                            backgroundColor: "#fec400",
-                            borderRadius: "5px",
-                            height: "20px",
-                            fontSize: "10px",
-                            color: "white",
-                            marginLeft: "4px",
-                          }}
-                          onClick={
-                            () => {
-                              setID(cell?.value);
-                              setisOpen2(true)
-                            }}
-                        >
-                          {/* RAISE A QUERY */}
-                          NOT APPROVE
-                        </Button>
-                      </div>
+                      <>
+                        {
+                          cell?.value == true ?
+                            <>APPROVED</>
+                            :
+                            <div id={`approvehide${cell?.value}`}>
+                              <Button
+                                onClick={() => {
+                                  setID(cell?.value);
+                                  setisOpen1(true)
+                                }}
+                                bg="transparent"
+                                style={{
+                                  backgroundColor: "#29cc97",
+                                  borderRadius: "5px",
+                                  height: "20px",
+                                  fontSize: "10px",
+                                  color: "white",
+                                }}
+                              >
+                                APPROVE
+                              </Button>
+                              <Button
+                                style={{
+                                  backgroundColor: "#fec400",
+                                  borderRadius: "5px",
+                                  height: "20px",
+                                  fontSize: "10px",
+                                  color: "white",
+                                  marginLeft: "4px",
+                                }}
+                                onClick={
+                                  () => {
+                                    setID(cell?.value);
+                                    setisOpen2(true)
+                                  }}
+                              >
+                                {/* RAISE A QUERY */}
+                                NOT APPROVE
+                              </Button>
+                            </div>
+
+                        }
+                      </>
+
                     );
                   }
                   return (

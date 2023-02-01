@@ -82,8 +82,14 @@ export default function SignIn() {
       requestApiData
         .sendOTP(mainPayload.phone)
         .then((res) => {
-          setshowOTP(true);
-          setMobileNumber(mainPayload.phone);
+          if (res.data.is_admin) {
+            setshowOTP(true);
+            setMobileNumber(mainPayload.phone);
+          } else {
+            toast.error('You are not authorized to access', {
+              position: toast.POSITION.TOP_CENTER,
+            });
+          }
         })
         .catch((err) => {
           toast.error(err?.response?.data?.msg, {
@@ -240,7 +246,7 @@ export default function SignIn() {
                   onBlur={formikSendOTP.handleBlur}
                 />
                 {formikSendOTP.errors.mobile_number &&
-                formikSendOTP.touched.mobile_number == true ? (
+                  formikSendOTP.touched.mobile_number == true ? (
                   <FormHelperText color={errorColor} mb="16px">
                     {formikSendOTP.errors.mobile_number}
                   </FormHelperText>

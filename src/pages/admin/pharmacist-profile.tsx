@@ -26,75 +26,75 @@ export default function PharmacyProfile() {
   let pharmacistList = []
   const mainResp: any = []
 
-  useEffect( () => {
+  useEffect(() => {
     (async function pharmacistListFunction() {
       await requestApiData
-      .pharmacistList()
-      .then((res) => {
-        res?.data.map((item:(any)) => {
+        .pharmacistList()
+        .then((res) => {
+          res?.data.map((item: (any)) => {
             mainResp.push({
-                // "id": 22,
-                // "profile": [
-                //   {
-                //     "id": 3,
-                //     "image": "/profile_pics/profile.png",
-                //     "user": 22
-                //   }
-                // ],
-                // "pharmacist_docs": [
-                //   {
-                //     "id": 2,
-                //     "licence_image": "/pharmacit_pics/dolo.jfif",
-                //     "registration_image": "/pharmacit_pics/dolo_HSwliiy.jfif",
-                //     "id_image": "/pharmacit_pics/dolo_dfHXfHK.jfif",
-                //     "tan_number": "123456",
-                //     "user": 22
-                //   }
-                // ],
-                // "password": "pbkdf2_sha256$390000$TNDqpbeXSYgmbHo36D5ydM$ztoMJLJcGwVQgle9fLemHB6+JD0vl9RQvm1NkR69xc4=",
-                // "last_login": null,
-                // "is_superuser": false,
-                // "first_name": "string",
-                // "last_name": "string",
-                // "is_staff": false,
-                // "is_active": true,
-                // "date_joined": "2022-12-14T11:46:58.821213Z",
-                // "username": null,
-                // "name": "desh1234",
-                // "mobile_number": "999999999",
-                // "whatapp_mobile_number": null,
-                // "email": "userdddgg@example.com",
-                // "birth_date": null,
-                // "isVerified": false,
-                // "counter": 0,
-                // "user_type": "Pharmacists",
-                // "gender": "M",
-                // "age": 0,
-                // "groups": [],
-                // "user_permissions": []
-    
-                "orderId": item.id,
-                "customerName": item.name,
-                "phoneNumber": item.mobile_number,
-                "email": item.email,
-                "document": item.pharmacist_docs,
-                "action": item.id
+              // "id": 22,
+              // "profile": [
+              //   {
+              //     "id": 3,
+              //     "image": "/profile_pics/profile.png",
+              //     "user": 22
+              //   }
+              // ],
+              // "pharmacist_docs": [
+              //   {
+              //     "id": 2,
+              //     "licence_image": "/pharmacit_pics/dolo.jfif",
+              //     "registration_image": "/pharmacit_pics/dolo_HSwliiy.jfif",
+              //     "id_image": "/pharmacit_pics/dolo_dfHXfHK.jfif",
+              //     "tan_number": "123456",
+              //     "user": 22
+              //   }
+              // ],
+              // "password": "pbkdf2_sha256$390000$TNDqpbeXSYgmbHo36D5ydM$ztoMJLJcGwVQgle9fLemHB6+JD0vl9RQvm1NkR69xc4=",
+              // "last_login": null,
+              // "is_superuser": false,
+              // "first_name": "string",
+              // "last_name": "string",
+              // "is_staff": false,
+              // "is_active": true,
+              // "date_joined": "2022-12-14T11:46:58.821213Z",
+              // "username": null,
+              // "name": "desh1234",
+              // "mobile_number": "999999999",
+              // "whatapp_mobile_number": null,
+              // "email": "userdddgg@example.com",
+              // "birth_date": null,
+              // "isVerified": false,
+              // "counter": 0,
+              // "user_type": "Pharmacists",
+              // "gender": "M",
+              // "age": 0,
+              // "groups": [],
+              // "user_permissions": []
+
+              "orderId": item.id,
+              "customerName": item.name,
+              "phoneNumber": item.mobile_number,
+              "email": item.email,
+              "document": item.pharmacist_docs,
+              "action": item.isVerified
             }
             )
-        })
-    
-        if (mainResp && mainResp.length > 0) {
-            setJsonData(mainResp);
-        }
-      })
-      .catch((err) => {
-        if(err?.response?.status === 401)
-            Router.push("/auth/sign-in");
-      });
-    })();
-   
+          })
 
-}, [])
+          if (mainResp && mainResp.length > 0) {
+            setJsonData(mainResp);
+          }
+        })
+        .catch((err) => {
+          if (err?.response?.status === 401)
+            Router.push("/auth/sign-in");
+        });
+    })();
+
+
+  }, [])
 
 
   // Chakra Color Mode
