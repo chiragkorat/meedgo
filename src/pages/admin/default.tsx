@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   Table,
@@ -13,7 +13,7 @@ import {
   Radio, RadioGroup
 } from "@chakra-ui/react";
 import Card from 'components/card/Card'
-
+import Router from "next/router";
 // Assets
 // Custom components
 import MiniStatistics from "components/card/MiniStatistics";
@@ -39,8 +39,23 @@ import Requests from "../../models/Request";
 
 
 export default function UserReports() {
+  const [transactionCount, setTransactionCount] = useState<any>({})
+  const requestApiData = new Requests();
   const brandColor = useColorModeValue("brand.500", "white");
   const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
+
+  useEffect(() => {
+    requestApiData
+      .getDashboardTrack()
+      .then((res) => {
+        setTransactionCount(res.data.data)
+      })
+      .catch((err) => {
+        if (err?.response?.status === 401)
+          Router.push("/auth/sign-in");
+      });
+  }, [])
+
 
   return (
     <AdminLayout>
@@ -53,8 +68,8 @@ export default function UserReports() {
           >
             <MiniStatistics
               name="Annual Transaction"
-              value="350,897"
-              growth="3.48%"
+              value={transactionCount?.annualTransaction || 0}
+              // growth="3.48%"
               id={1}
               endContent={
                 <IconBox
@@ -75,8 +90,8 @@ export default function UserReports() {
 
             <MiniStatistics
               name="Monthly Transaction"
-              value="2,356"
-              growth="3.86%"
+              value={transactionCount?.monthTransaction || 0}
+              // growth="3.86%"
               id={2}
               endContent={
                 <IconBox
@@ -97,8 +112,8 @@ export default function UserReports() {
 
             <MiniStatistics
               name="Quarterly Transaction"
-              value="924"
-              growth="1.10%"
+              value={transactionCount?.quaterTransaction || 0}
+              // growth="1.10%"
               id={3}
               endContent={
                 <IconBox
@@ -225,7 +240,7 @@ export default function UserReports() {
           <hr />
 
           <Flex px='25px' justify='space-between' pb='10px' mt='18px' align='center'>
-            
+
 
             <b style={{ fontSize: '12px' }}>
               Create New Ticket example
@@ -276,7 +291,7 @@ export default function UserReports() {
             4480
           </Flex>
         </Card>
-        
+
         <Card
           flexDirection='column'
           w='32%'

@@ -80,4 +80,13 @@ export default class Requests {
         })
     }
 
+    getDashboardTrack(data) {
+        return axios({
+            method: 'GET',
+            url: `http://3.108.227.121:8000/adminApp/transaction_count/`,
+            headers: { Authorization: `TOKEN ${localStorage.getItem('Token')}` },
+            data
+        })
+    }
+
 }
