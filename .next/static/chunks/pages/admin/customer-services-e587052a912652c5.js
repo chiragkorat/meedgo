@@ -1,0 +1,1 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[823],{6088:function(n,_,u){(window.__NEXT_P=window.__NEXT_P||[]).push(["/admin/customer-services",function(){return u(6616)}])}},function(n){n.O(0,[866,228,260,285,578,409,249,774,888,179],function(){return n(n.s=6088)}),_N_E=n.O()}]);

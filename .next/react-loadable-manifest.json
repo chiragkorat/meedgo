@@ -1,14 +1,51 @@
 {
   "..\\components\\charts\\AreaChart.tsx -> react-apexcharts": {
-    "id": "..\\components\\charts\\AreaChart.tsx -> react-apexcharts",
+    "id": 7229,
     "files": [
-      "static/chunks/node_modules_react-apexcharts_dist_react-apexcharts_min_js.js"
+      "static/chunks/6c44d60f.ef5818c05ea123db.js",
+      "static/chunks/229.b854d690932a3d00.js"
+    ]
+  },
+  "..\\components\\charts\\BarChart.tsx -> react-apexcharts": {
+    "id": 7229,
+    "files": [
+      "static/chunks/6c44d60f.ef5818c05ea123db.js",
+      "static/chunks/229.b854d690932a3d00.js"
     ]
   },
   "..\\components\\charts\\ColumnChart.tsx -> react-apexcharts": {
-    "id": "..\\components\\charts\\ColumnChart.tsx -> react-apexcharts",
+    "id": 7229,
     "files": [
-      "static/chunks/node_modules_react-apexcharts_dist_react-apexcharts_min_js.js"
+      "static/chunks/6c44d60f.ef5818c05ea123db.js",
+      "static/chunks/229.b854d690932a3d00.js"
+    ]
+  },
+  "..\\components\\charts\\LineAreaChart.tsx -> react-apexcharts": {
+    "id": 7229,
+    "files": [
+      "static/chunks/6c44d60f.ef5818c05ea123db.js",
+      "static/chunks/229.b854d690932a3d00.js"
+    ]
+  },
+  "..\\components\\charts\\LineChart.tsx -> react-apexcharts": {
+    "id": 7229,
+    "files": [
+      "static/chunks/6c44d60f.ef5818c05ea123db.js",
+      "static/chunks/229.b854d690932a3d00.js"
+    ]
+  },
+  "..\\components\\charts\\PieChart.tsx -> react-apexcharts": {
+    "id": 7229,
+    "files": [
+      "static/chunks/6c44d60f.ef5818c05ea123db.js",
+      "static/chunks/229.b854d690932a3d00.js"
+    ]
+  },
+  "admin\\assess-dashboard.tsx -> react-apexcharts": {
+    "id": 7229,
+    "files": [
+      "static/chunks/6c44d60f.ef5818c05ea123db.js",
+      "static/chunks/229.b854d690932a3d00.js"
     ]
   }
 }
