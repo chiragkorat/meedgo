@@ -246,7 +246,7 @@ export default function ColumnsTable(props: TableProps) {
                           <Image
                             src={DocIcon}
                             onClick={() => {
-                              let url = `http://3.108.227.121:8000${cell?.value[0]?.licence_image}`;
+                              let url = `http://ec2-13-235-242-127.ap-south-1.compute.amazonaws.com:8000${cell?.value[0]?.licence_image}`;
                               saveAs(url, "Licence Image");
                             }}
                             style={{
@@ -262,7 +262,7 @@ export default function ColumnsTable(props: TableProps) {
                             <Image
                               src={DocIcon}
                               onClick={() => {
-                                let url = `http://3.108.227.121:8000${cell?.value[0]?.registration_image}`;
+                                let url = `http://ec2-13-235-242-127.ap-south-1.compute.amazonaws.com:8000${cell?.value[0]?.registration_image}`;
                                 saveAs(url, "Registration Image");
                               }}
                               style={{
@@ -280,7 +280,7 @@ export default function ColumnsTable(props: TableProps) {
                             <Image
                               src={DocIcon}
                               onClick={() => {
-                                let url = `http://3.108.227.121:8000${cell.value[0].registration_image}`;
+                                let url = `http://ec2-13-235-242-127.ap-south-1.compute.amazonaws.com:8000${cell.value[0].registration_image}`;
                                 saveAs(url, "Id Image");
                               }}
                               style={{
